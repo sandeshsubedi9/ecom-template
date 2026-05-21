@@ -156,16 +156,10 @@
     </div>
 
     <!-- ══════════════════════════════════════
-         HERO SECTION — MAROON BACKGROUND
+         STICKY NAVBAR
     ══════════════════════════════════════ -->
-    <section class="bg-maroon text-white relative pt-5 pb-48 overflow-hidden">
-
-        <!-- Subtle radial glow behind product -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] rounded-full opacity-20 pointer-events-none"
-            style="background: radial-gradient(circle, var(--maroon-mid) 0%, transparent 70%);"></div>
-
-        <!-- ── NAVBAR ── -->
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center mb-14 relative z-10">
+    <header id="mainNav" class="sticky top-0 z-50 w-full bg-maroon transition-all duration-300" style="background-color: var(--maroon);">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="hidden lg:flex gap-8 text-sm font-medium text-white/80 items-center">
                 <a href="#overview" class="hover:text-white transition-colors duration-200">Overview</a>
                 <a href="#benefits" class="hover:text-white transition-colors duration-200">Benefits</a>
@@ -189,6 +183,16 @@
                 </a>
             </div>
         </nav>
+    </header>
+
+    <!-- ══════════════════════════════════════
+         HERO SECTION — MAROON BACKGROUND
+    ══════════════════════════════════════ -->
+    <section class="bg-maroon text-white relative pt-10 pb-48 overflow-hidden">
+
+        <!-- Subtle radial glow behind product -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] rounded-full opacity-20 pointer-events-none"
+            style="background: radial-gradient(circle, var(--maroon-mid) 0%, transparent 70%);"></div>
 
         <!-- ── HERO CONTENT GRID ── -->
         <div
@@ -1022,6 +1026,17 @@
         </div>
 
     </footer>
+    <script>
+        // Toggle navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 
 </html>
