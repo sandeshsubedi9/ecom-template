@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynGas — Premium OBD Fuel Saver</title>
+    <meta name="description" content="Discover SynGas, the premium OBD fuel saver designed to optimize your engine's performance and increase fuel efficiency effortlessly.">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,1&display=swap" rel="stylesheet">
+
+    <style>
+        html { scroll-behavior: smooth; font-size: 19px; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fraunces', serif !important;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #F7F3EF;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        /* ===== MAROON PALETTE ===== */
+        :root {
+            --maroon:        #7B2A34;
+            --maroon-dark:   #5C1F28;
+            --maroon-mid:    #9B3A45;
+            --maroon-glow:   rgba(155, 58, 69, 0.35);
+            --cream:         #F7F3EF;
+            --blush:         #FFD8D4;
+            --teal-card:     #C5DFE0;
+        }
+
+        .bg-maroon      { background-color: var(--maroon); }
+        .bg-maroon-dark { background-color: var(--maroon-dark); }
+        .text-maroon    { color: var(--maroon); }
+        .text-blush     { color: var(--blush); }
+        .border-blush   { border-color: var(--blush); }
+
+        /* ===== ORGANIC TORN PAPER EDGE ===== */
+        .torn-edge {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 50' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 L1440,50 L1440,0 C1420,18 1400,6 1380,20 C1360,34 1340,8 1320,22 C1300,36 1280,10 1260,24 C1240,38 1220,12 1200,5 C1180,18 1160,32 1140,14 C1120,0 1100,26 1080,16 C1060,6 1040,30 1020,20 C1000,10 980,35 960,22 C940,9 920,28 900,18 C880,8 860,32 840,20 C820,8 800,26 780,14 C760,2 740,28 720,16 C700,4 680,30 660,18 C640,6 620,28 600,20 C580,12 560,34 540,22 C520,10 500,30 480,18 C460,6 440,26 420,14 C400,2 380,24 360,16 C340,8 320,30 300,20 C280,10 260,32 240,22 C220,12 200,30 180,18 C160,6 140,26 120,14 C100,2 80,22 60,12 C40,2 20,20 0,10 Z' fill='%23F7F3EF'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            z-index: 20;
+        }
+
+        /* ===== PRODUCT GLOW ===== */
+        .product-glow {
+            filter: drop-shadow(0 20px 60px rgba(155, 58, 69, 0.5)) drop-shadow(0 0 80px rgba(255, 216, 212, 0.2));
+        }
+
+        /* ===== FLOATING BADGE ===== */
+        .float-anim {
+            animation: floatBadge 3s ease-in-out infinite;
+        }
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50%       { transform: translateY(-8px) rotate(-2deg); }
+        }
+
+        /* ===== CARD HOVER ===== */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* ===== PLAY BUTTON ===== */
+        .play-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .play-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 0 30px rgba(242, 132, 130, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ══════════════════════════════════════
+         TOP ANNOUNCEMENT BAR
+    ══════════════════════════════════════ -->
+    <div class="bg-maroon-dark text-white/90 py-2.5 text-xs font-medium tracking-wide"
+         style="background-color: var(--maroon-dark);">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm" style="color: var(--blush);">local_shipping</span>
+                Free Worldwide Shipping on Orders $75+
+            </div>
+            <div class="flex items-center gap-1.5 hidden sm:flex">
+                <span class="material-symbols-outlined text-sm" style="color: var(--blush);">auto_awesome</span>
+                Guaranteed: <span class="font-bold ml-1" style="color: var(--blush);">30-Day Satisfaction</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm" style="color: var(--blush);">verified</span>
+                Over 8,000+ Drivers
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         HERO SECTION — MAROON BACKGROUND
+    ══════════════════════════════════════ -->
+    <section class="bg-maroon text-white relative pt-5 pb-48 overflow-hidden">
+
+        <!-- Subtle radial glow behind product -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] rounded-full opacity-20 pointer-events-none"
+             style="background: radial-gradient(circle, var(--maroon-mid) 0%, transparent 70%);"></div>
+
+        <!-- ── NAVBAR ── -->
+        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center mb-14 relative z-10">
+            <div class="hidden lg:flex gap-8 text-sm font-medium text-white/80 items-center">
+                <a href="#overview" class="hover:text-white transition-colors duration-200">Overview</a>
+                <a href="#benefits" class="hover:text-white transition-colors duration-200">Benefits</a>
+                <a href="#how-it-works" class="hover:text-white transition-colors duration-200">How It Works</a>
+            </div>
+
+            <a href="#" class="text-3xl tracking-widest font-bold text-white flex items-center gap-2"
+               style="font-family: 'Fraunces', serif;">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm material-symbols-outlined" style="background-color: var(--blush); color: var(--maroon);">bolt</span>
+                SynGas<span style="color: var(--blush);">.</span>
+            </a>
+
+            <div class="hidden md:flex gap-6 items-center text-sm font-medium text-white/80">
+                <a href="#reviews" class="hover:text-white transition-colors">Reviews</a>
+                <a href="#pricing"
+                   class="border rounded-full px-6 py-2.5 text-white hover:bg-white hover:text-[var(--maroon)] transition-colors duration-200 flex items-center gap-2"
+                   style="border-color: rgba(255,216,212,0.5);">
+                    Shop Now
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ── HERO CONTENT GRID ── -->
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-4 items-end relative z-10">
+
+            <!-- ── LEFT: Big Headline + CTA ── -->
+            <div class="max-w-md mx-auto lg:mx-0 text-center lg:text-left pb-8 lg:pb-16">
+                <div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase mb-6"
+                     style="color: var(--blush);">
+                    <span class="w-6 h-px" style="background: var(--blush);"></span>
+                    Premium Fuel Technology
+                    <span class="w-6 h-px" style="background: var(--blush);"></span>
+                </div>
+
+                <h1 class="text-5xl md:text-6xl font-medium leading-[1.05] mb-6"
+                    style="font-family: 'Fraunces', serif;">
+                    Reduce Fuel <br>Costs by <br>
+                    <span style="color: var(--blush);">Up to 55%</span>
+                </h1>
+
+                <p class="text-white/70 text-lg mb-10 leading-relaxed font-light max-w-sm mx-auto lg:mx-0">
+                    An elegantly engineered device that communicates with your vehicle's ECU to optimize fuel delivery — saving you hundreds every month without effort.
+                </p>
+
+                <a href="#pricing"
+                   class="inline-flex items-center gap-4 bg-white font-bold px-7 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-2xl text-base"
+                   style="color: var(--maroon);">
+                    Save 75% Today
+                    <span class="w-9 h-9 rounded-full flex items-center justify-center"
+                          style="background-color: var(--blush);">
+                        <span class="material-symbols-outlined text-sm" style="color: var(--maroon);">arrow_forward</span>
+                    </span>
+                </a>
+
+                <div class="mt-8 flex items-center gap-4 justify-center lg:justify-start">
+                    <div class="flex -space-x-2">
+                        <img src="https://i.pravatar.cc/100?img=1" class="w-8 h-8 rounded-full border-2 border-[var(--maroon)]">
+                        <img src="https://i.pravatar.cc/100?img=2" class="w-8 h-8 rounded-full border-2 border-[var(--maroon)]">
+                        <img src="https://i.pravatar.cc/100?img=3" class="w-8 h-8 rounded-full border-2 border-[var(--maroon)]">
+                    </div>
+                    <div class="text-xs text-white/70 font-light">
+                        <span class="font-bold text-white">4.7/5</span> from 8,000+ owners
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── MIDDLE: Tall Vertical Product Image ── -->
+            <div class="relative mx-auto w-[220px] md:w-[270px] lg:w-[300px] flex-shrink-0">
+                <div class="absolute -left-10 bottom-24 -rotate-90 text-[9px] tracking-[0.35em] uppercase font-bold hidden lg:block"
+                     style="color: rgba(255,216,212,0.45);">
+                    OBD2&nbsp;&nbsp;Tuning
+                </div>
+
+                <img src="https://www.revistaavft.com/wp-content/uploads/2026/03/SynGas-Chip-Abbild.png"
+                     alt="SynGas Box"
+                     class="w-full h-[450px] object-contain product-glow relative z-20 rounded-3xl mix-blend-normal">
+
+                <div class="float-anim absolute -top-4 -right-4 z-30 bg-white text-xs font-bold px-3 py-1.5 rounded-full shadow-xl"
+                     style="color: var(--maroon);">
+                    ✦ Save $600/yr
+                </div>
+            </div>
+
+            <!-- ── RIGHT: Play button + Feature Card + Tagline ── -->
+            <div class="flex flex-col gap-10 items-center lg:items-end justify-end pb-8 lg:pb-16 w-full">
+                <div class="flex items-center gap-4 group cursor-pointer">
+                    <div class="play-btn w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg"
+                         style="background-color: #F28482;">
+                        <span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+                    </div>
+                    <span class="text-sm font-medium leading-snug text-white/80">
+                        See How<br>It Works
+                    </span>
+                </div>
+
+                <div class="w-full max-w-[240px]">
+                    <div class="feature-card rounded-2xl p-4 shadow-2xl rotate-2 overflow-hidden"
+                         style="background-color: var(--teal-card); color: #1a1a1a;">
+                        <h4 class="text-lg mb-2 text-center font-medium pt-1"
+                            style="font-family: 'Fraunces', serif;">
+                            Efficiency Rating: A+
+                        </h4>
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80"
+                             alt="Driving"
+                             class="w-full h-36 object-cover rounded-xl mb-3">
+                        <div class="flex justify-center gap-1.5 pb-1">
+                            <span class="w-2 h-2 rounded-full bg-black/70"></span>
+                            <span class="w-2 h-2 rounded-full bg-black/20"></span>
+                            <span class="w-2 h-2 rounded-full bg-black/20"></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center lg:text-right">
+                        <h3 class="text-2xl lg:text-3xl font-medium text-white leading-tight mb-2"
+                            style="font-family: 'Fraunces', serif;">
+                            Installs in<br>60 seconds
+                        </h3>
+                        <p class="text-white/60 text-sm font-light">
+                            Requires zero modifications. Simply plug in and drive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="torn-edge"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         TRUST BAR
+    ══════════════════════════════════════ -->
+    <section class="py-10" style="background-color: var(--cream);">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-black/40 font-bold text-xs uppercase tracking-widest mb-6">Certified & Trusted By</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-black/60">
+                <div class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-2xl">verified</span> FCC Certified</div>
+                <div class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-2xl">shield</span> CE Marked</div>
+                <div class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-2xl">eco</span> RoHS Compliant</div>
+                <div class="flex items-center gap-2 font-bold"><span class="material-symbols-outlined text-2xl">settings_input_component</span> ISO 15031</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 2: ABOUT / STORY
+    ══════════════════════════════════════ -->
+    <section class="py-20 px-6 relative z-10" style="background-color: var(--cream);" id="overview">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left Image -->
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80" 
+                     alt="Tech" 
+                     class="w-full h-[500px] object-cover rounded-[2.5rem]">
+            </div>
+            <!-- Right Content -->
+            <div>
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">The Details</div>
+                <h2 class="text-4xl md:text-5xl leading-tight mb-8" style="font-family: 'Fraunces', serif;">
+                    <span style="color: var(--maroon);">Crafted</span> for Performance.<br>Designed for everyone.
+                </h2>
+                
+                <p class="text-black/60 font-light leading-relaxed text-lg mb-8">
+                    The average driver spends over $2,500 annually on fuel. SynGas was designed by automotive engineers who believed that intelligent, accessible technology should benefit everyone — not just luxury vehicles.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-black/5">
+                        <div class="text-3xl font-bold mb-1" style="color: var(--maroon);">8,258+</div>
+                        <div class="text-xs font-bold tracking-wide uppercase text-black/50">Verified Reviews</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-black/5">
+                        <div class="text-3xl font-bold mb-1" style="color: var(--maroon);">$24.85</div>
+                        <div class="text-xs font-bold tracking-wide uppercase text-black/50">One Investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: THREE CARDS (BENEFITS)
+    ══════════════════════════════════════ -->
+    <section class="py-20 px-6" style="background-color: var(--cream);" id="benefits">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">Why Choose Us</div>
+            <h2 class="text-4xl md:text-5xl" style="font-family: 'Fraunces', serif;">Intelligent Technology</h2>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #E2EFF0;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #6C9A9C;"><span class="material-symbols-outlined">savings</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Reduce Monthly Costs</h3>
+                <p class="text-sm text-black/60 font-medium">A 25% reduction saves $50 monthly — $600 annually that stays in your account.</p>
+            </div>
+            
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8E5D6;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #B57B54;"><span class="material-symbols-outlined">bolt</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Enhanced Performance</h3>
+                <p class="text-sm text-black/60 font-medium">Smoother acceleration and more responsive throttle without sacrificing economy.</p>
+            </div>
+            
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8DDE1;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #B25A68;"><span class="material-symbols-outlined">eco</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Lower Emissions</h3>
+                <p class="text-sm text-black/60 font-medium">Every gallon saved means approximately 20 lbs of CO2 kept from the atmosphere.</p>
+            </div>
+
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #EAE6F4;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #7B6B9C;"><span class="material-symbols-outlined">handyman</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Protect Your Engine</h3>
+                <p class="text-sm text-black/60 font-medium">Cleaner combustion reduces deposits and extends the life of critical components.</p>
+            </div>
+            
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #F4EBE1;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #A38C71;"><span class="material-symbols-outlined">touch_app</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Effortless Operation</h3>
+                <p class="text-sm text-black/60 font-medium">No apps, no buttons. It learns your habits and adjusts continuously in real-time.</p>
+            </div>
+            
+            <div class="rounded-3xl p-8 transition-transform hover:-translate-y-2 duration-300" style="background-color: #EBF4E5;">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 text-xl" style="color: #7A9B61;"><span class="material-symbols-outlined">loyalty</span></div>
+                <h3 class="text-2xl mb-6 pr-4" style="font-family: 'Fraunces', serif;">Exceptional Value</h3>
+                <p class="text-sm text-black/60 font-medium">At $24.85, it pays for itself in under two weeks for the average driver.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 4: ELEVATE (INSTALLATION)
+    ══════════════════════════════════════ -->
+    <section class="py-20 px-6" style="background-color: var(--cream);" id="how-it-works">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div>
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">Simple Setup</div>
+                <h2 class="text-4xl md:text-6xl mb-12" style="font-family: 'Fraunces', serif;">
+                    Installation <span class="inline-block bg-white shadow-sm rounded-full p-2 align-middle text-2xl mx-1 -translate-y-1">⏱️</span><br>in seconds
+                </h2>
+                
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6 p-4 rounded-2xl hover:bg-white/50 transition-colors">
+                        <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-xl font-bold shadow-sm shrink-0" style="color: var(--maroon);">1</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold mb-1">Locate Port</h4>
+                            <p class="text-sm text-black/60">Under dashboard, near steering column. 16-pin connector.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6 p-4 rounded-2xl hover:bg-white/50 transition-colors">
+                        <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-xl font-bold shadow-sm shrink-0" style="color: var(--maroon);">2</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold mb-1">Connect</h4>
+                            <p class="text-sm text-black/60">Align and push firmly until click. No tools needed.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6 p-4 rounded-2xl hover:bg-white/50 transition-colors">
+                        <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-xl font-bold shadow-sm shrink-0" style="color: var(--maroon);">3</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold mb-1">Drive & Calibrate</h4>
+                            <p class="text-sm text-black/60">Drive 150 miles for the ECU to learn your habits and optimize.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" 
+                     alt="Interior" 
+                     class="w-full h-[550px] object-cover rounded-[3rem] rounded-tr-none shadow-xl">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         HOW IT ACTUALLY WORKS (PROCESS)
+    ══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background-color: var(--cream);">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <p class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">The Process</p>
+                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">How It Actually Works</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm text-center transition-transform hover:-translate-y-2 duration-300" style="background-color: #E2EFF0;">
+                    <div class="text-5xl font-bold mb-4" style="color: #6C9A9C; font-family: 'Fraunces', serif;">01</div>
+                    <h4 class="font-bold text-lg mb-2">Analysis</h4>
+                    <p class="text-black/60 text-sm">Reads your vehicle's computer data immediately upon connection.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm text-center transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8E5D6;">
+                    <div class="text-5xl font-bold mb-4" style="color: #B57B54; font-family: 'Fraunces', serif;">02</div>
+                    <h4 class="font-bold text-lg mb-2">Calibration</h4>
+                    <p class="text-black/60 text-sm">Learns your unique driving patterns over approximately 150 miles.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm text-center transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8DDE1;">
+                    <div class="text-5xl font-bold mb-4" style="color: #B25A68; font-family: 'Fraunces', serif;">03</div>
+                    <h4 class="font-bold text-lg mb-2">Optimization</h4>
+                    <p class="text-black/60 text-sm">Fine-tunes fuel injection timing and air-fuel ratio for peak efficiency.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm text-center transition-transform hover:-translate-y-2 duration-300" style="background-color: #EAE6F4;">
+                    <div class="text-5xl font-bold mb-4" style="color: #7B6B9C; font-family: 'Fraunces', serif;">04</div>
+                    <h4 class="font-bold text-lg mb-2">Adaptation</h4>
+                    <p class="text-black/60 text-sm">Continuously adjusts to weather, fuel quality, and conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         WHAT'S INSIDE (TECH SPECS)
+    ══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background-color: #FAF5F5;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <p class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">Transparency</p>
+                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">What's Inside</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">memory</span>
+                    <h3 class="text-lg font-bold mb-2">ARM Cortex-M3 Processor</h3>
+                    <p class="text-black/60 text-sm">32-bit, 1000 reads/sec, &lt;50mA. Operating temp: -40°F to 185°F.</p>
+                </div>
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">cable</span>
+                    <h3 class="text-lg font-bold mb-2">Multi-Protocol OBD2 Chip</h3>
+                    <p class="text-black/60 text-sm">All 5 OBD2 protocols supported. Universal vehicle compatibility.</p>
+                </div>
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">storage</span>
+                    <h3 class="text-lg font-bold mb-2">EEPROM Memory</h3>
+                    <p class="text-black/60 text-sm">8KB personalized profile. Retains data when unplugged. Auto-backup.</p>
+                </div>
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">lightbulb</span>
+                    <h3 class="text-lg font-bold mb-2">LED Status Indicator</h3>
+                    <p class="text-black/60 text-sm">Solid green: optimized. Blinking: calibrating. Visual feedback.</p>
+                </div>
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">shield</span>
+                    <h3 class="text-lg font-bold mb-2">Premium Housing</h3>
+                    <p class="text-black/60 text-sm">ABS plastic, UL94 V-0 rated. Smaller than a matchbox.</p>
+                </div>
+                <div class="bg-[var(--cream)] rounded-2xl p-6 border border-black/5">
+                    <span class="material-symbols-outlined text-[var(--maroon)] text-3xl mb-4">bolt</span>
+                    <h3 class="text-lg font-bold mb-2">Power Management</h3>
+                    <p class="text-black/60 text-sm">&lt;0.6W, auto-sleep when off. Built-in surge protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         REAL RESULTS (CASE STUDIES)
+    ══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background-color: var(--cream);">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <p class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">Proven Performance</p>
+                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Real Results</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Sarah -->
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm transition-transform hover:-translate-y-2 duration-300" style="background-color: #E2EFF0;">
+                    <div class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-white" style="color: #6C9A9C;">Daily Commuter</div>
+                    <h3 class="text-xl font-bold mb-1">Sarah M. — Florida</h3>
+                    <p class="text-black/50 text-sm mb-6">2018 Honda CR-V</p>
+                    <div class="space-y-3 pt-6 border-t border-black/10">
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">Before:</span><span class="font-bold">26 MPG / $180/mo</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">After:</span><span class="font-bold" style="color: var(--maroon);">33 MPG / $135/mo</span></div>
+                        <div class="flex justify-between text-sm mt-2 pt-2 border-t border-black/5"><span class="text-black/60 font-medium">Savings:</span><span class="font-bold">27% — $540/year</span></div>
+                    </div>
+                </div>
+                <!-- Marcus -->
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8E5D6;">
+                    <div class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-white" style="color: #B57B54;">Delivery Driver</div>
+                    <h3 class="text-xl font-bold mb-1">Marcus T. — Texas</h3>
+                    <p class="text-black/50 text-sm mb-6">2015 Ford Transit Van</p>
+                    <div class="space-y-3 pt-6 border-t border-black/10">
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">Before:</span><span class="font-bold">16 MPG / $420/mo</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">After:</span><span class="font-bold" style="color: var(--maroon);">21 MPG / $315/mo</span></div>
+                        <div class="flex justify-between text-sm mt-2 pt-2 border-t border-black/5"><span class="text-black/60 font-medium">Savings:</span><span class="font-bold">31% — $1,260/year</span></div>
+                    </div>
+                </div>
+                <!-- Jennifer -->
+                <div class="p-8 rounded-3xl border border-black/5 shadow-sm transition-transform hover:-translate-y-2 duration-300" style="background-color: #F8DDE1;">
+                    <div class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-white" style="color: #B25A68;">Road Warrior</div>
+                    <h3 class="text-xl font-bold mb-1">Jennifer K. — CA</h3>
+                    <p class="text-black/50 text-sm mb-6">2020 Toyota Camry</p>
+                    <div class="space-y-3 pt-6 border-t border-black/10">
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">Before:</span><span class="font-bold">31 MPG / $150/mo</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-black/60 font-medium">After:</span><span class="font-bold" style="color: var(--maroon);">38 MPG / $115/mo</span></div>
+                        <div class="flex justify-between text-sm mt-2 pt-2 border-t border-black/5"><span class="text-black/60 font-medium">Savings:</span><span class="font-bold">23% — $420/year</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PROFESSIONAL OPINION
+    ══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background-color: #FAF5F5;">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="material-symbols-outlined text-6xl text-black/10 mb-6 font-[Fraunces]">format_quote</span>
+            <h3 class="text-3xl lg:text-4xl font-bold leading-relaxed italic mb-10" style="font-family: 'Fraunces', serif;">
+                "As a mechanical engineer, SynGas has truly stood out in its ability to optimize fuel consumption without compromising engine performance. This isn't snake oil — it's legitimate technology at an accessible price point."
+            </h3>
+            <div class="flex items-center justify-center gap-4">
+                <img src="https://i.pravatar.cc/100?img=50" class="w-16 h-16 rounded-full border-2 border-[var(--maroon)]">
+                <div class="text-left">
+                    <div class="font-bold text-lg">Andrew Stevens</div>
+                    <div class="text-black/60 text-sm">ASE Certified Master Technician</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 5: FIND IN STORE (PRICING)
+    ══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background-color: var(--cream);" id="pricing">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            
+            <div class="flex gap-2">
+                <span class="px-4 py-1.5 rounded-full border border-black/10 text-xs font-bold bg-white">100% Natural</span>
+                <span class="px-4 py-1.5 rounded-full border border-black/10 text-xs font-bold bg-white">Long Lasting</span>
+            </div>
+
+            <h2 class="text-5xl" style="font-family: 'Fraunces', serif;">Select Your Package</h2>
+
+            <div class="hidden md:block"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+            
+            <!-- Prod 1 -->
+            <div class="rounded-[2rem] p-8 pt-10 flex flex-col relative group border border-black/5" style="background-color: #F4EBE1;">
+                <h3 class="text-2xl text-center mb-2" style="font-family: 'Fraunces', serif;"><b>Single</b></h3>
+                <p class="text-center text-sm text-black/50 mb-6">For one vehicle</p>
+                <div class="text-center mb-8">
+                    <span class="text-4xl font-bold">$24.85</span>
+                    <span class="text-black/40 line-through ml-2">$99.00</span>
+                </div>
+                <img src="https://www.revistaavft.com/wp-content/uploads/2026/03/SynGas-Chip-Abbild.png" class="w-32 mx-auto drop-shadow-xl group-hover:scale-110 transition-transform duration-500 mb-8 mix-blend-multiply object-contain">
+                <button class="w-full py-4 rounded-full border-2 border-black font-bold hover:bg-black hover:text-white transition-colors mt-auto">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Prod 2 -->
+            <div class="rounded-[2rem] p-8 pt-10 flex flex-col relative group shadow-2xl scale-105 z-10" style="background-color: var(--maroon); color: white;">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--blush)] text-[var(--maroon)] px-6 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+                    Most Popular
+                </div>
+                <h3 class="text-2xl text-center mb-2" style="font-family: 'Fraunces', serif;"><b>Family Pack</b></h3>
+                <p class="text-center text-sm text-white/70 mb-6">For three vehicles</p>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold text-[var(--blush)]">$59.85</span>
+                    <span class="text-white/50 line-through ml-2">$297.00</span>
+                </div>
+                <img src="https://www.revistaavft.com/wp-content/uploads/2026/03/SynGas-Chip-Abbild.png" class="w-40 mx-auto drop-shadow-2xl group-hover:scale-110 transition-transform duration-500 mb-8 mix-blend-normal object-contain">
+                <button class="w-full py-4 rounded-full bg-white text-[var(--maroon)] font-bold hover:bg-gray-100 transition-colors mt-auto">
+                    Add Family Pack
+                </button>
+            </div>
+
+            <!-- Prod 3 -->
+            <div class="rounded-[2rem] p-8 pt-10 flex flex-col relative group border border-black/5" style="background-color: #E2F0E5;">
+                <h3 class="text-2xl text-center mb-2" style="font-family: 'Fraunces', serif;"><b>Fleet</b></h3>
+                <p class="text-center text-sm text-black/50 mb-6">For five vehicles</p>
+                <div class="text-center mb-8">
+                    <span class="text-4xl font-bold">$89.85</span>
+                    <span class="text-black/40 line-through ml-2">$495.00</span>
+                </div>
+                <img src="https://www.revistaavft.com/wp-content/uploads/2026/03/SynGas-Chip-Abbild.png" class="w-32 mx-auto drop-shadow-xl group-hover:scale-110 transition-transform duration-500 mb-8 mix-blend-multiply object-contain">
+                <button class="w-full py-4 rounded-full border-2 border-black font-bold hover:bg-black hover:text-white transition-colors mt-auto">
+                    Add Fleet Pack
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 6: EVENTS / NEWS (PERFORMANCE MAROON BREAK)
+    ══════════════════════════════════════ -->
+    <section class="relative py-24 px-6 bg-maroon text-white mt-10">
+        
+        <!-- Top Torn Edge -->
+        <div class="absolute top-[-2px] left-0 w-full h-[35px] rotate-180" 
+             style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 1000 30\" preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0,30 L1000,30 L1000,0 Q985,12 970,3 Q955,15 940,5 Q925,17 910,2 Q895,13 880,7 Q865,18 850,4 Q835,14 820,1 Q805,16 790,8 Q775,19 760,5 Q745,15 730,2 Q715,12 700,7 Q685,18 670,4 Q655,14 640,0 Q625,16 610,6 Q595,19 580,3 Q565,13 550,8 Q535,17 520,1 Q505,14 490,5 Q475,16 460,2 Q445,12 430,9 Q415,19 400,3 Q385,15 370,6 Q355,17 340,1 Q325,12 310,8 Q295,18 280,4 Q265,14 250,2 Q235,16 220,7 Q205,19 190,5 Q175,13 160,0 Q145,15 130,6 Q115,18 100,2 Q85,12 70,8 Q55,17 40,4 Q25,14 10,1 Q5,7 0,0 Z\" fill=\"%23F7F3EF\"/></svg>'); background-size: 100% 100%; z-index: 10;"></div>
+
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex justify-between items-center mb-12 border-b border-white/20 pb-4">
+                <div class="flex gap-8 text-2xl font-light" style="font-family: 'Fraunces', serif;">
+                    <span class="border-b-2 border-white pb-2">Advantages</span>
+                    <span class="text-white/50">Limitations</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <h2 class="text-4xl lg:text-5xl mb-6" style="font-family: 'Fraunces', serif;">Why SynGas<br>Outperforms</h2>
+                    <p class="text-white/70 font-light mb-10 max-w-md">
+                        After running extensive technical tests, we've found that SynGas delivers reliable results for over 85% of standard commuter vehicles.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 text-sm">
+                        <div>
+                            <h4 class="font-bold text-[var(--blush)] mb-3">The Good</h4>
+                            <ul class="space-y-2 text-white/80">
+                                <li>✦ Zero modifications</li>
+                                <li>✦ Warranty safe</li>
+                                <li>✦ Substantial savings</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white/50 mb-3">The Catch</h4>
+                            <ul class="space-y-2 text-white/60">
+                                <li>✦ 1996+ vehicles only</li>
+                                <li>✦ Not for all-electric</li>
+                                <li>✦ High demand</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" 
+                         alt="Dashboard" 
+                         class="w-full h-[350px] object-cover rounded-[2.5rem] shadow-2xl">
+                    
+                    <div class="absolute -bottom-10 -right-5 bg-white p-5 rounded-2xl shadow-2xl rotate-3">
+                        <div class="text-2xl font-bold text-maroon mb-1">A+ Rating</div>
+                        <div class="text-xs text-black/60 max-w-[150px]">Proven reliable results.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Torn Edge -->
+        <div class="torn-edge"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 7: TESTIMONIALS
+    ══════════════════════════════════════ -->
+    <section class="py-32 px-6" style="background-color: var(--cream);">
+        <div class="max-w-7xl mx-auto flex justify-between items-end mb-16">
+            <h2 class="text-4xl lg:text-5xl" style="font-family: 'Fraunces', serif;">Loved by 8,000+ Drivers</h2>
+            <button class="border border-black px-6 py-2 rounded-full text-sm font-medium hover:bg-black hover:text-white transition-colors flex items-center gap-2">
+                All Reviews <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="p-10 rounded-3xl" style="background-color: #FCE8ED;">
+                <div class="flex text-[var(--maroon)] mb-4"><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span></div>
+                <h4 class="font-bold text-lg mb-2 text-black">"Finally, it works!"</h4>
+                <p class="font-light text-black/70 leading-relaxed mb-10">
+                    "My monthly gas bill dropped from $210 to $155. Installation was as simple as plugging in a socket. Ordering 2 more for all my cars."
+                </p>
+                <div class="flex items-center gap-3">
+                    <img src="https://i.pravatar.cc/100?img=11" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <div class="font-bold text-sm">Noah H.</div>
+                        <div class="text-xs opacity-60">Florida</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-10 rounded-3xl" style="background-color: #DDF0F5;">
+                <div class="flex text-[#6C9A9C] mb-4"><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span></div>
+                <h4 class="font-bold text-lg mb-2 text-black">"Game-changer"</h4>
+                <p class="font-light text-black/70 leading-relaxed mb-10">
+                    "Very environmentally conscious. It's affordable and pays for itself in days. My delivery routes are more profitable now."
+                </p>
+                <div class="flex items-center gap-3">
+                    <img src="https://i.pravatar.cc/100?img=12" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <div class="font-bold text-sm">Ethan C.</div>
+                        <div class="text-xs opacity-60">Texas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-10 rounded-3xl relative" style="background-color: #F8E5D6;">
+                <div class="flex text-[#B57B54] mb-4"><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span></div>
+                <h4 class="font-bold text-lg mb-2 text-black">"Salesperson's friend"</h4>
+                <p class="font-light text-black/70 leading-relaxed mb-10">
+                    "I travel to different cities every day. I no longer fill up twice per day. Best $25 I've ever spent. I highly recommend it."
+                </p>
+                <div class="flex items-center gap-3">
+                    <img src="https://i.pravatar.cc/100?img=13" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <div class="font-bold text-sm">Mason J.</div>
+                        <div class="text-xs opacity-60">California</div>
+                    </div>
+                </div>
+                <!-- Plus decoration -->
+                <div class="absolute -bottom-4 -right-4 text-6xl text-[#E86A33] font-bold">+</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════════ -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--maroon-mid);">Questions</div>
+                <h2 class="text-4xl md:text-5xl" style="font-family: 'Fraunces', serif;">Frequently Asked</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-[var(--cream)] rounded-2xl shadow-sm border border-black/5 open:bg-white transition-colors" open>
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 cursor-pointer select-none">
+                        Is SynGas compatible with all car models?
+                        <span class="material-symbols-outlined text-[var(--maroon)] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-black/60 font-light leading-relaxed">
+                        Compatible with any vehicle manufactured in 1996 or later with an OBD2 port — including all cars, trucks, and SUVs.
+                    </div>
+                </details>
+
+                <details class="group bg-[var(--cream)] rounded-2xl shadow-sm border border-black/5 open:bg-white transition-colors">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 cursor-pointer select-none">
+                        How long until I see results?
+                        <span class="material-symbols-outlined text-[var(--maroon)] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-black/60 font-light leading-relaxed">
+                        Most owners notice improvements after approximately 150 miles. Consistent savings are evident after 2-3 fill-ups.
+                    </div>
+                </details>
+
+                <details class="group bg-[var(--cream)] rounded-2xl shadow-sm border border-black/5 open:bg-white transition-colors">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 cursor-pointer select-none">
+                        Will it void my vehicle's warranty?
+                        <span class="material-symbols-outlined text-[var(--maroon)] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-black/60 font-light leading-relaxed">
+                        No. SynGas is a plug-and-play device. It does not permanently alter your vehicle's ECU. Unplugging it simply returns your car to its factory settings.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         FOOTER (MAROON WITH TOP TORN EDGE)
+    ══════════════════════════════════════ -->
+    <footer class="relative bg-maroon-dark text-white pt-24 pb-10 px-6 overflow-hidden" style="background-color: var(--maroon-dark);">
+        
+        <!-- Top Torn Edge (inverted) -->
+        <div class="absolute top-[-2px] left-0 w-full h-[35px] rotate-180" 
+             style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 1000 30\" preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0,30 L1000,30 L1000,0 Q985,12 970,3 Q955,15 940,5 Q925,17 910,2 Q895,13 880,7 Q865,18 850,4 Q835,14 820,1 Q805,16 790,8 Q775,19 760,5 Q745,15 730,2 Q715,12 700,7 Q685,18 670,4 Q655,14 640,0 Q625,16 610,6 Q595,19 580,3 Q565,13 550,8 Q535,17 520,1 Q505,14 490,5 Q475,16 460,2 Q445,12 430,9 Q415,19 400,3 Q385,15 370,6 Q355,17 340,1 Q325,12 310,8 Q295,18 280,4 Q265,14 250,2 Q235,16 220,7 Q205,19 190,5 Q175,13 160,0 Q145,15 130,6 Q115,18 100,2 Q85,12 70,8 Q55,17 40,4 Q25,14 10,1 Q5,7 0,0 Z\" fill=\"%23F7F3EF\"/></svg>'); background-size: 100% 100%; z-index: 10;"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-20 relative z-10">
+            
+            <div class="lg:col-span-1">
+                <a href="#" class="text-3xl tracking-widest font-light text-white mb-4 flex items-center gap-2 block"
+                   style="font-family: 'Fraunces', serif;">
+                    <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm material-symbols-outlined" style="background-color: var(--blush); color: var(--maroon);">bolt</span>
+                    SynGas<span style="color: var(--blush);">.</span>
+                </a>
+                <p class="text-[10px] text-white/40 max-w-[180px]">Engineered to provide performance and affordability. Zero modifications required.</p>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-sm mb-6">Links</h5>
+                <ul class="space-y-4 text-xs text-white/60">
+                    <li><a href="#overview" class="hover:text-white">Overview</a></li>
+                    <li><a href="#benefits" class="hover:text-white">Benefits</a></li>
+                    <li><a href="#how-it-works" class="hover:text-white">Installation</a></li>
+                    <li><a href="#pricing" class="hover:text-white">Packages</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-sm mb-6">Company</h5>
+                <ul class="space-y-4 text-xs text-white/60">
+                    <li><a href="#" class="hover:text-white">About us</a></li>
+                    <li><a href="#" class="hover:text-white">Our mission</a></li>
+                    <li><a href="#" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-sm mb-6">Legal Pages</h5>
+                <ul class="space-y-4 text-xs text-white/60">
+                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Refund Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-1">
+                <h5 class="text-xl font-light mb-6" style="font-family: 'Fraunces', serif;">Save 55% Today!</h5>
+                <div class="text-xs text-white/60 mb-2">Support Email</div>
+                <div class="text-sm mb-6 font-medium">support@syngas.com</div>
+            </div>
+
+        </div>
+
+        <!-- Huge Background Text & Bottle Placeholder -->
+        <div class="relative w-full flex justify-center items-end mt-10 h-[150px] md:h-[200px]">
+            <div class="absolute inset-0 flex justify-center items-center overflow-hidden pointer-events-none">
+                <h1 class="text-[8vw] lg:text-[140px] font-bold text-white/5 whitespace-nowrap" style="font-family: 'Fraunces', serif;">SYNGAS OBD SAVER</h1>
+            </div>
+            <!-- The user will change this vertical placeholder image to their vertical box packaging -->
+            <img src="https://www.revistaavft.com/wp-content/uploads/2026/03/SynGas-Chip-Abbild.png" 
+                 class="h-[120px] md:h-[180px] object-contain rounded-t-3xl relative z-10 mx-auto" style="filter: drop-shadow(0 -10px 20px rgba(0,0,0,0.5)); mix-blend-normal;">
+        </div>
+
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 mt-8 border-t border-white/10 pt-6">
+            <div>All rights reserved © SynGas 2026</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white">Terms of service</a>
+                <a href="#" class="hover:text-white">Privacy policy</a>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>
