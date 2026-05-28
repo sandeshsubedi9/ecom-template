@@ -228,13 +228,13 @@
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm" style="color: var(--blush);">local_shipping</span>
-                Free Worldwide Shipping on Orders $75+
+                <span class="text-center">Free Worldwide Shipping on Orders $75+</span>
             </div>
-            <div class="flex items-center gap-1.5 hidden sm:flex">
+            <div class="hidden sm:flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm" style="color: var(--blush);">auto_awesome</span>
                 Guaranteed: <span class="font-bold ml-1" style="color: var(--blush);">30-Day Satisfaction</span>
             </div>
-            <div class="flex items-center gap-1.5">
+            <div class="hidden md:flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm" style="color: var(--blush);">verified</span>
                 Over 8,000+ Drivers
             </div>
@@ -275,14 +275,14 @@
     <!-- ══════════════════════════════════════
          H1: HERO SECTION — Product Title + USP + Trust Factors + CTA
     ══════════════════════════════════════ -->
-    <section class="bg-primary text-white relative pt-10 pb-20 lg:pb-24 overflow-hidden">
+    <section class="bg-primary text-white relative min-h-screen flex items-center py-10 lg:py-0 overflow-hidden">
 
         <!-- Subtle radial glow behind product -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] rounded-full opacity-20 pointer-events-none"
             style="background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);"></div>
 
         <!-- ── HERO CONTENT GRID ── -->
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+        <div class="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-10 lg:py-16">
 
             <!-- ── LEFT: Big Headline + USP + CTA ── -->
             <div class="lg:col-span-7 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left pb-4 lg:pb-8">
@@ -347,7 +347,6 @@
                     ✦ Save $600/yr
                 </div>
             </div>
-
         </div>
         <div class="torn-edge"></div>
     </section>
@@ -367,80 +366,91 @@
          H2: SynGas Specifications (Table)
     ══════════════════════════════════════ -->
     <section class="py-20 px-6" style="background-color: var(--cream);" id="specifications">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-1">
-                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4 text-center"
-                style="color: var(--primary-light);">Technical Data</div>
-            <h2 class="text-4xl md:text-5xl text-center mb-6" style="font-family: 'Fraunces', serif;">SynGas OBD Fuel Saver <span
-                    style="color: var(--primary);">Specification</span></h2>
-            <p class="text-center text-black/60 font-light text-lg mb-12 max-w-2xl mx-auto">The <strong>SynGas OBD Fuel Saver</strong> is designed to be a straightforward, non-invasive support tool for your vehicle's engine management system. It focuses on ease of use, ensuring that any driver—regardless of technical skill—can utilize it to potentially support better fuel efficiency.</p>
-
-            <div class="rounded-2xl shadow-sm border border-black/5 overflow-hidden" style="background-color: #E2EFF0;">
-                <table class="spec-table">
-                    <thead>
-                        <tr>
-                            <th>Specification</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Product Name</td>
-                            <td>SynGas OBD Fuel Saver</td>
-                        </tr>
-                        <tr>
-                            <td>Product Type</td>
-                            <td>OBD2 plug-in fuel efficiency support device</td>
-                        </tr>
-                        <tr>
-                            <td>Connection Type</td>
-                            <td>OBD2 vehicle port</td>
-                        </tr>
-                        <tr>
-                            <td>Best For</td>
-                            <td>Daily drivers, commuters, truck/SUV owners, high-mileage users</td>
-                        </tr>
-                        <tr>
-                            <td>Installation</td>
-                            <td>Plug-and-play</td>
-                        </tr>
-                        <tr>
-                            <td>Tools Required</td>
-                            <td>No tools required</td>
-                        </tr>
-                        <tr>
-                            <td>Vehicle Fit</td>
-                            <td>Commonly positioned for most vehicles made after 1996 with OBD2 support</td>
-                        </tr>
-                        <tr>
-                            <td>Use Style</td>
-                            <td>Plug in, drive normally, track fuel usage</td>
-                        </tr>
-                        <tr>
-                            <td>Testing Tip</td>
-                            <td>Compare MPG before and after normal driving</td>
-                        </tr>
-                        <tr>
-                            <td>Buyer Reminder</td>
-                            <td>Verify current SynGas price, return policy, and compatibility before purchase</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Centered Header and Intro -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--primary-light);">Technical Data</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">SynGas OBD Fuel Saver <span style="color: var(--primary);">Specification</span></h2>
+                <p class="text-black/60 font-light text-xl">The <strong>SynGas OBD Fuel Saver</strong> is designed to be a straightforward, non-invasive support tool for your vehicle's engine management system. It focuses on ease of use, ensuring that any driver—regardless of technical skill—can utilize it to potentially support better fuel efficiency.</p>
             </div>
-            <p class="text-black/60 font-light leading-relaxed text-lg mt-8 text-center max-w-2xl mx-auto">The key advantage is not complexity. It is convenience. A driver can install the <strong>SynGas device</strong> in minutes, then monitor fuel use over time instead of guessing whether it helped.</p>
-            
-            <div class="text-center mt-8">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+
+            <!-- Two Column Layout for Table vs Image -->
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <!-- Left: Table -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full rounded-2xl shadow-sm border border-black/5 overflow-hidden" style="background-color: #E2EFF0;">
+                        <table class="spec-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>Specification</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Product Name</td>
+                                    <td>SynGas OBD Fuel Saver</td>
+                                </tr>
+                                <tr>
+                                    <td>Product Type</td>
+                                    <td>OBD2 plug-in fuel efficiency support device</td>
+                                </tr>
+                                <tr>
+                                    <td>Connection Type</td>
+                                    <td>OBD2 vehicle port</td>
+                                </tr>
+                                <tr>
+                                    <td>Best For</td>
+                                    <td>Daily drivers, commuters, truck/SUV owners, high-mileage users</td>
+                                </tr>
+                                <tr>
+                                    <td>Installation</td>
+                                    <td>Plug-and-play</td>
+                                </tr>
+                                <tr>
+                                    <td>Tools Required</td>
+                                    <td>No tools required</td>
+                                </tr>
+                                <tr>
+                                    <td>Vehicle Fit</td>
+                                    <td>Commonly positioned for most vehicles made after 1996 with OBD2 support</td>
+                                </tr>
+                                <tr>
+                                    <td>Use Style</td>
+                                    <td>Plug in, drive normally, track fuel usage</td>
+                                </tr>
+                                <tr>
+                                    <td>Testing Tip</td>
+                                    <td>Compare MPG before and after normal driving</td>
+                                </tr>
+                                <tr>
+                                    <td>Buyer Reminder</td>
+                                    <td>Verify current SynGas price, return policy, and compatibility before purchase</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                        <img src="public/sygas-image.png" alt="SynGas OBD2 fuel saver specification chart for car owners" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centered Conclusion and CTA -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-black/60 font-light text-lg mb-10">
+                    The key advantage is not complexity. It is convenience. A driver can install the <strong>SynGas device</strong> in minutes, then monitor fuel use over time instead of guessing whether it helped.
+                </p>
+                
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                     View Current SynGas Device Price
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Easy decision-making, practical buyer clarity</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-2">
-                <div class="w-full h-full rounded-3xl overflow-hidden shadow-sm border border-black/5">
-                <img src="public/sygas-image.png" alt="SynGas OBD2 fuel saver specification chart for car owners" class="w-full h-auto object-cover">
-            </div>
             </div>
         </div>
     </section>
@@ -449,45 +459,57 @@
          H2: Product Overview (2-3 Paragraphs)
     ══════════════════════════════════════ -->
     <section class="py-20 px-6 relative z-10" style="background-color: var(--cream);" id="overview">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <!-- Left Image -->
-            <div class="relative">
-                <img src="public/sygas-image.png"
-                    alt="SynGas fuel saver overview for daily car fuel savings" class="w-full h-[500px] object-cover rounded-[2.5rem]">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Centered Header and Intro -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--primary-light);">Product Overview</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Product Overview</h2>
+                <p class="text-black/60 font-light text-xl">
+                    <strong>SynGas OBD Fuel Saver</strong> is marketed as a compact OBD2-based device for drivers who want to reduce fuel waste and support smoother vehicle performance habits. It is a consumer automotive plug-in device, not a fuel-production system or commercial energy unit.
+                </p>
             </div>
-            <!-- Right Content -->
-            <div>
-                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--primary-light);">Product
-                    Overview</div>
-                <h2 class="text-4xl md:text-5xl leading-tight mb-8" style="font-family: 'Fraunces', serif;">
-                    Product Overview
-                </h2>
 
-                <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
-                    <strong>SynGas OBD Fuel Saver</strong> is marketed as a compact OBD2-based device for drivers who want to reduce fuel waste and support smoother vehicle performance habits. It is different from industrial <strong>syn gas</strong>, <strong>syngas production</strong>, or a <strong>syngas reactor</strong>. This product is a consumer automotive plug-in device, not a fuel-production system or commercial energy unit.
-                </p>
-
-                <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
-                    That distinction matters because some search terms around <strong>syngas unit</strong> and <strong>syngas uses</strong> refer to industrial gas production, while <strong>SynGas OBD2</strong> refers to a small car accessory. For everyday buyers, the real question is simple: can this device help you become more aware of fuel use and possibly improve efficiency in your own vehicle?
-                </p>
-
-                <p class="text-black/60 font-light leading-relaxed text-lg mb-8">
-                    The honest answer is: it depends. Some promotional pages describe possible fuel savings, while broader testing of plug-in gas saver devices has produced skeptical findings. Consumer Reports previously tested gas-saving devices and advised consumers not to waste money on devices that did not deliver results in its tests. That does not automatically prove every new device performs the same way, but it does mean buyers should use real fuel tracking rather than emotion alone.
-                </p>
-
-                <p class="text-black/60 font-light leading-relaxed text-lg mb-8">
-                    <strong>Best buying mindset:</strong> treat SynGas as a low-effort driving-efficiency test, not a guaranteed fuel bill solution.
-                </p>
-
-                <div class="mt-8">
-                    <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
-                        Try SynGas With Real MPG Tracking
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                    <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Informed buying, realistic expectations</div>
+            <!-- Two Column Layout: Image vs Key Points -->
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <!-- Left: Image -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                        <img src="public/sygas-image.png" alt="SynGas fuel saver overview for daily car fuel savings" class="w-full h-auto object-cover">
+                    </div>
                 </div>
 
+                <!-- Right: Key Points Card -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl p-8 md:p-10 shadow-sm border border-black/5" style="background-color: #F4EBE1;">
+                        <h3 class="text-2xl font-bold mb-6" style="font-family: 'Fraunces', serif; color: var(--primary);">What To Know Before Buying</h3>
+                        <ul class="space-y-6 text-black/70 font-light text-lg">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">info</span>
+                                <span>Some search terms around <strong>syngas unit</strong> refer to industrial gas. <strong>SynGas OBD2</strong> is a small car accessory — a completely different product.</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">show_chart</span>
+                                <span>Results vary by driver. Use <strong>real MPG tracking</strong> before and after — not just feelings about fuel economy.</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">lightbulb</span>
+                                <span><strong>Best buying mindset:</strong> treat SynGas as a low-effort driving-efficiency test, not a guaranteed fuel bill solution.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Centered Conclusion and CTA -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-black/60 font-light text-lg mb-10">
+                    Consumer Reports previously tested gas-saving devices and advised consumers not to waste money on devices that did not deliver results in its tests. That does not automatically prove every new device performs the same way, but it does mean buyers should use real fuel tracking rather than emotion alone.
+                </p>
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
+                    Try SynGas With Real MPG Tracking
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+                <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Informed buying, realistic expectations</div>
             </div>
         </div>
     </section>
@@ -496,50 +518,63 @@
          H2: Key Features (Lead-in + Bullet Points with Explanation)
     ══════════════════════════════════════ -->
     <section class="py-20 px-6" style="background-color: var(--cream);" id="features">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-1">
-                <div class="text-center mb-6">
-                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--primary-light);">Why
-                    Choose SynGas</div>
-                <h2 class="text-4xl md:text-5xl" style="font-family: 'Fraunces', serif;">Key Features</h2>
-            </div>
-            <p class="text-center text-black/60 font-light text-lg mb-16 max-w-2xl mx-auto">The <strong>syngas fuel saver</strong> focuses on convenience, simplicity, and everyday usability. It is not made for drivers who want complicated tuning software or advanced ECU remapping. It is aimed at people who want a small device they can plug in and test during normal driving.</p>
-
-            <div class="max-w-4xl mx-auto rounded-3xl p-8 md:p-12 shadow-sm border border-black/5 mb-12" style="background-color: #F8E5D6;">
-                <h3 class="text-2xl leading-tight mb-6" style="font-family: 'Fraunces', serif;">Main Features</h3>
-                <ul class="space-y-4 text-black/70 font-light text-lg">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>OBD2 plug-in design</strong> for fast installation</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Compact body</strong> that does not clutter the dashboard</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>No wiring or battery change required</strong></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Designed for regular driving routines</strong></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Useful for MPG tracking tests</strong> over city and highway routes</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Suitable for drivers who want a non-invasive option</strong></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Simple enough for beginners</strong></span>
-                    </li>
-                </ul>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Centered Header and Intro -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase mb-4" style="color: var(--primary-light);">Why Choose SynGas</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Key Features</h2>
+                <p class="text-black/60 font-light text-xl">The <strong>syngas fuel saver</strong> focuses on convenience, simplicity, and everyday usability. It is not made for drivers who want complicated tuning software or advanced ECU remapping. It is aimed at people who want a small device they can plug in and test during normal driving.</p>
             </div>
 
-            <div class="max-w-3xl mx-auto text-center">
+            <!-- Two Column Layout for Features vs Image -->
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <!-- Left: Features Box -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl p-8 md:p-10 shadow-sm border border-black/5" style="background-color: #F8E5D6;">
+                        <h3 class="text-2xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Main Features</h3>
+                        <ul class="space-y-4 text-black/70 font-light text-lg">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>OBD2 plug-in design</strong> for fast installation</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Compact body</strong> that does not clutter the dashboard</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>No wiring or battery change required</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Designed for regular driving routines</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Useful for MPG tracking tests</strong> over city and highway routes</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Suitable for drivers who want a non-invasive option</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Simple enough for beginners</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                        <img src="public/sygas-image.png" alt="SynGas device key features for OBD fuel saver users" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centered Conclusion and CTA -->
+            <div class="text-center max-w-3xl mx-auto">
                 <p class="text-black/60 font-light text-lg mb-6">
                     The biggest benefit is low friction. You do not need to book a mechanic, buy tools, or change your driving setup. For drivers already frustrated by rising fuel costs, that simplicity can feel refreshing.
                 </p>
@@ -547,18 +582,11 @@
                     Still, expectations should stay practical. A poorly maintained car, worn spark plugs, bad tire pressure, aggressive acceleration, or heavy idling can hurt fuel economy more than any small device can fix. SynGas works best when used alongside smart driving habits.
                 </p>
                 
-                
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                     See If SynGas Fits Your Vehicle
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Beginner-friendly setup, low-effort testing</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-2">
-                <div class="w-full h-full">
-                    <img src="public/sygas-image.png" alt="SynGas device key features for OBD fuel saver users" class="w-full h-auto object-cover">
-                </div>
             </div>
         </div>
     </section>
@@ -567,64 +595,71 @@
          H2: Material / Build Quality / Technical Specs
     ══════════════════════════════════════ -->
     <section class="py-24 px-6" style="background-color: #F8F9FA;" id="build-quality">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Material / Build Quality / Technical Specs</h2>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Centered Header and Intro -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Material / Build Quality / Technical Specs</h2>
+                <p class="text-black/60 font-light text-xl mb-6">
+                    The <strong>SynGas device</strong> is designed as a small OBD2 accessory that plugs into the vehicle's diagnostic port. Most OBD2 ports are located under the dashboard near the steering column, though the exact position can vary by vehicle model.
+                </p>
+                <p class="text-black/60 font-light text-xl">
+                    From a buyer's point of view, the most important build-quality factors are:
+                </p>
             </div>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
-                The <strong>SynGas device</strong> is designed as a small OBD2 accessory that plugs into the vehicle's diagnostic port. Most OBD2 ports are located under the dashboard near the steering column, though the exact position can vary by vehicle model.
-            </p>
+            <!-- Two Column Layout for Image vs Features -->
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <!-- Left: Image -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                        <img src="public/sygas-image.png" alt="SynGas OBD2 stecker build quality and car port fit" class="w-full h-auto object-cover">
+                    </div>
+                </div>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
-                From a buyer's point of view, the most important build-quality factors are:
-            </p>
+                <!-- Right: Features Box -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-lg rounded-3xl p-8 md:p-10 shadow-sm border border-black/5" style="background-color: #E2EFF0;">
+                        <ul class="space-y-6 text-black/70 font-light text-lg">
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Stable OBD2 fit</strong> so the device does not feel loose</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Compact casing</strong> that does not interfere with legroom</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Basic heat tolerance</strong> for normal cabin conditions</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Clear indicator light behavior</strong> if included in the model</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Safe non-invasive use</strong> without cutting wires or opening engine parts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            <ul class="space-y-4 text-black/70 font-light text-lg mb-8 max-w-2xl mx-auto">
-                <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                    <span><strong>Stable OBD2 fit</strong> so the device does not feel loose</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                    <span><strong>Compact casing</strong> that does not interfere with legroom</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                    <span><strong>Basic heat tolerance</strong> for normal cabin conditions</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                    <span><strong>Clear indicator light behavior</strong> if included in the model</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                    <span><strong>Safe non-invasive use</strong> without cutting wires or opening engine parts</span>
-                </li>
-            </ul>
+            <!-- Centered Conclusion and CTA -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-black/60 font-light text-lg mb-6">
+                    A good <strong>obd fuel saver</strong> should be simple to remove if you want to stop testing it. That is important because not every driver will see the same results. If your vehicle is newer, already optimized, or mostly driven on smooth highways, improvements may be harder to notice. Older or high-mileage vehicles may give you more visible comparison data, especially if your baseline fuel economy is inconsistent.
+                </p>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
-                A good <strong>obd fuel saver</strong> should be simple to remove if you want to stop testing it. That is important because not every driver will see the same results. If your vehicle is newer, already optimized, or mostly driven on smooth highways, improvements may be harder to notice. Older or high-mileage vehicles may give you more visible comparison data, especially if your baseline fuel economy is inconsistent.
-            </p>
-
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-10">
-                <strong>Technical buyer tip:</strong> Before buying, confirm whether your vehicle has a standard OBD2 port and whether the seller lists any exclusions for hybrid, diesel, modified, or performance-tuned vehicles.
-            </p>
-
-            
-            <div class="text-center mt-8">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+                <p class="text-black/60 font-light text-lg mb-10">
+                    <strong>Technical buyer tip:</strong> Before buying, confirm whether your vehicle has a standard OBD2 port and whether the seller lists any exclusions for hybrid, diesel, modified, or performance-tuned vehicles.
+                </p>
+                
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                     Check SynGas Compatibility Before Ordering
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Safety reassurance, compatibility confidence</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                <div class="w-full h-full">
-                <img src="public/sygas-image.png" alt="SynGas OBD2 stecker build quality and car port fit" class="w-full h-auto object-cover">
-            </div>
             </div>
         </div>
     </section>
@@ -633,79 +668,109 @@
          H2: How It Works
     ══════════════════════════════════════ -->
     <section class="py-24 px-6" style="background-color: var(--cream);" id="how-it-works">
-        <div class="max-w-7xl mx-auto flex flex-col gap-20">
+        <div class="max-w-7xl mx-auto flex flex-col gap-32">
             <!-- Row 1: How it Works & Smart Testing Method -->
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2 order-1 lg:order-1">
-                    <div class="mb-6">
-                        <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">How It Works</h2>
-                    </div>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
+            <div>
+                <!-- Centered Header and Intro -->
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">How It Works</h2>
+                    <p class="text-black/60 font-light text-xl mb-6">
                         The <strong>syngas obd2</strong> concept is usually explained around the OBD2 port, vehicle data, and driving behavior. The device is promoted as a plug-in tool that connects to the car's onboard diagnostic system and supports efficiency-focused driving optimization over time.
                     </p>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-10">
+                    <p class="text-black/60 font-light text-xl mb-6">
                         A fair explanation is this: SynGas is positioned as a small driving-efficiency support device that may help some users monitor or improve fuel-use patterns. However, independent engineering validation for the exact performance claims is limited, and broader OBD fuel saver products have received skepticism from mechanics and consumer testing sources.
                     </p>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-10 font-bold">
+                    <p class="text-black/60 font-light text-xl font-bold">
                         That is why the best approach is not blind belief. It is measurement.
                     </p>
-                    <h3 class="text-2xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Smart Testing Method</h3>
-                    <ol class="list-decimal pl-6 space-y-2 text-black/60 font-light text-lg mb-10">
-                        <li>Record your current MPG for 1–2 normal fuel cycles.</li>
-                        <li>Install the <strong>SynGas OBD Fuel Saver</strong> correctly.</li>
-                        <li>Drive the same routes as much as possible.</li>
-                        <li>Avoid changing driving habits too much during the test.</li>
-                        <li>Compare fuel use after a normal driving period.</li>
-                        <li>Decide based on your own data, not hype.</li>
-                    </ol>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-10">
+                </div>
+
+                <!-- Two Column Layout: Testing Method vs Image -->
+                <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                    <!-- Left: Smart Testing Box -->
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="w-full max-w-lg rounded-3xl p-8 md:p-10 shadow-sm border border-black/5" style="background-color: #E2EFF0;">
+                            <h3 class="text-2xl font-bold mb-6" style="font-family: 'Fraunces', serif; color: var(--primary);">Smart Testing Method</h3>
+                            <ol class="list-decimal pl-6 space-y-4 text-black/70 font-light text-lg">
+                                <li>Record your current MPG for 1–2 normal fuel cycles.</li>
+                                <li>Install the <strong>SynGas OBD Fuel Saver</strong> correctly.</li>
+                                <li>Drive the same routes as much as possible.</li>
+                                <li>Avoid changing driving habits too much during the test.</li>
+                                <li>Compare fuel use after a normal driving period.</li>
+                                <li>Decide based on your own data, not hype.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Right: Image -->
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                            <img src="public/sygas-image.png" alt="How SynGas OBD Fuel Saver works through OBD2 port" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Centered Conclusion and CTA -->
+                <div class="text-center max-w-3xl mx-auto">
+                    <p class="text-black/60 font-light text-lg mb-10">
                         This gives you a cleaner answer than online arguments. Your vehicle, your roads, your fuel habits, and your driving style matter.
                     </p>
-                    <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+                    <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                         Start Your SynGas MPG Test
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span class="material-symbols-outlined text-base">arrow_forward</span>
                     </a>
                     <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Control through measurement, reduced buyer doubt</div>
-                </div>
-                <div class="w-full lg:w-1/2 order-2 lg:order-2">
-                    <div class="rounded-3xl overflow-hidden shadow-sm border border-black/5">
-                        <img src="public/sygas-image.png" alt="How SynGas OBD Fuel Saver works through OBD2 port" class="w-full h-auto object-cover">
-                    </div>
                 </div>
             </div>
 
             <!-- Row 2: How to Use -->
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                    <h3 class="text-2xl font-bold mb-6" style="font-family: 'Fraunces', serif;">How to Use / Guideline to Use Product</h3>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
+            <div>
+                <!-- Centered Header and Intro -->
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: 'Fraunces', serif;">How to Use / Guideline</h3>
+                    <p class="text-black/60 font-light text-xl mb-6">
                         Using the <strong>obd stecker</strong> style device is simple, but clean testing matters if you want useful results.
                     </p>
-                    <ol class="list-decimal pl-6 space-y-2 text-black/60 font-light text-lg mb-10">
-                        <li>Turn off your vehicle.</li>
-                        <li>Locate the OBD2 port under the dashboard.</li>
-                        <li>Plug in the <strong>SynGas stecker</strong> firmly.</li>
-                        <li>Start the car and check whether the device indicator activates.</li>
-                        <li>Drive normally for the suggested testing period.</li>
-                        <li>Track mileage, fuel refills, and route type.</li>
-                        <li>Compare before-and-after MPG.</li>
-                    </ol>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
+                </div>
+
+                <!-- Two Column Layout: Image vs How to Use Box -->
+                <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                    <!-- Left: Image -->
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                            <img src="public/sygas-image.png" alt="Step by step guide to using SynGas OBD2 fuel saver" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Right: How to Use Box -->
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div class="w-full max-w-lg rounded-3xl p-8 md:p-10 shadow-sm border border-black/5" style="background-color: #F8E5D6;">
+                            <ol class="list-decimal pl-6 space-y-4 text-black/70 font-light text-lg">
+                                <li>Turn off your vehicle.</li>
+                                <li>Locate the OBD2 port under the dashboard.</li>
+                                <li>Plug in the <strong>SynGas stecker</strong> firmly.</li>
+                                <li>Start the car and check whether the device indicator activates.</li>
+                                <li>Drive normally for the suggested testing period.</li>
+                                <li>Track mileage, fuel refills, and route type.</li>
+                                <li>Compare before-and-after MPG.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Centered Conclusion and CTA -->
+                <div class="text-center max-w-3xl mx-auto">
+                    <p class="text-black/60 font-light text-lg mb-6">
                         Do not judge the device after one short trip. City traffic, cold starts, hills, tire pressure, AC use, and fuel quality can all change mileage. A fair <strong>syngas test</strong> should include repeated driving conditions.
                     </p>
-                    <p class="text-black/60 font-light leading-relaxed text-lg mb-10">
+                    <p class="text-black/60 font-light text-lg mb-10">
                         <strong>Safety note:</strong> Remove the device and contact support if you notice warning lights, unusual vehicle behavior, or dashboard errors after installation.
                     </p>
-                    <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+                    <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                         Use SynGas the Right Way From Day One
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <span class="material-symbols-outlined text-base">arrow_forward</span>
                     </a>
                     <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Confidence after purchase, easy first use</div>
-                </div>
-                <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                    <div class="rounded-3xl overflow-hidden shadow-sm border border-black/5">
-                        <img src="public/sygas-image.png" alt="Step by step guide to using SynGas OBD2 fuel saver" class="w-full h-auto object-cover">
-                    </div>
                 </div>
             </div>
         </div>
@@ -715,15 +780,15 @@
          H2: Special Offer / Discount / Bundle Deals (PRICING)
     ══════════════════════════════════════ -->
     <section class="py-24 px-6" style="background-color: var(--cream);" id="pricing">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div class="hidden md:block"></div>
-            <div class="text-center">
-                <h2 class="text-5xl mb-4" style="font-family: 'Fraunces', serif;">Special Offer / Bundle Deals</h2>
-                <p class="text-black/60 font-light max-w-2xl mx-auto">
-                    Many buyers search for <strong>syngas price</strong> or <strong>buy syngas obd</strong> because pricing often changes by promotion, bundle size, and availability. Typical offer structures may include single-device packages, multi-pack bundles, and limited-time discount pricing.
-                </p>
-            </div>
-            <div class="hidden md:block"></div>
+        <!-- Centered Header and Intro -->
+        <div class="text-center mb-16 max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Special Offer / Bundle Deals</h2>
+            <p class="text-black/60 font-light text-xl mb-6">
+                Many buyers look for a <strong>syngas discount</strong> or promo code before purchasing. If you are buying one unit for a test, the single-unit price is usually accessible. If you own multiple vehicles or want to give one to a family member, multi-pack bundles often drop the per-unit price significantly.
+            </p>
+            <p class="text-black/60 font-light text-xl">
+                Before choosing a bundle, remember that the device needs to be tested on your own vehicle to prove its value to you. Start small if you are unsure, or use a multi-pack if you already trust the concept and want to outfit a whole driveway.
+            </p>
         </div>
 
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
@@ -882,107 +947,73 @@
          H2: Real Customer Reviews/Opinions
     ══════════════════════════════════════ -->
     <section class="py-24 px-6" style="background-color: var(--cream);" id="reviews">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-1">
-                <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Real Customer Reviews/Opinions</h2>
-            </div>
-            
-            <p class="text-black/60 font-light text-lg mb-10">A fair review of the <strong>syngas saver</strong> shows mixed but useful feedback. This is common for fuel-saving tools because drivers expect different results.</p>
-
-            <div class="rounded-3xl p-8 mb-10 shadow-sm border border-black/5" style="background-color: #F4EBE1;">
-                <h3 class="text-2xl font-bold mb-4" style="font-family: 'Fraunces', serif; color: var(--primary);">What people like:</h3>
-                <ul class="space-y-4 text-black/70 font-light text-lg">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Easy setup:</strong> Drivers agree it takes less than a minute to plug in.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Low risk:</strong> It does not change the vehicle permanently.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
-                        <span><strong>Increased awareness:</strong> Several buyers say testing the device made them drive more carefully, which naturally improved their gas mileage.</span>
-                    </li>
-                </ul>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Centered Header and Intro -->
+            <div class="text-center mb-16 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Real Customer Reviews/Opinions</h2>
+                <p class="text-black/60 font-light text-xl">A fair review of the <strong>syngas saver</strong> shows mixed but useful feedback. This is common for fuel-saving tools because drivers expect different results.</p>
             </div>
 
-            <div class="rounded-3xl p-8 mb-10 shadow-sm border border-black/5" style="background-color: #EBF4E5;">
-                <h3 class="text-2xl font-bold mb-4" style="font-family: 'Fraunces', serif; color: #B25A68;">What people dislike:</h3>
-                <ul class="space-y-4 text-black/70 font-light text-lg">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: #B25A68;">cancel</span>
-                        <span><strong>Varying results:</strong> Some drivers report clear improvements. Others report no change at all.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined mt-0.5" style="color: #B25A68;">cancel</span>
-                        <span><strong>Misleading ads:</strong> Some buyers bought it expecting their fuel bill to drop in half immediately, which is an unrealistic goal for any basic OBD2 plugin.</span>
-                    </li>
-                </ul>
+            <!-- Two Column Layout for Pros/Cons vs Image -->
+            <div class="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <!-- Left: Pros and Cons -->
+                <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                    <div class="rounded-3xl p-8 mb-8 shadow-sm border border-black/5" style="background-color: #F4EBE1;">
+                        <h3 class="text-2xl font-bold mb-4" style="font-family: 'Fraunces', serif; color: var(--primary);">What people like:</h3>
+                        <ul class="space-y-4 text-black/70 font-light text-lg">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Easy setup:</strong> Drivers agree it takes less than a minute to plug in.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Low risk:</strong> It does not change the vehicle permanently.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                                <span><strong>Increased awareness:</strong> Several buyers say testing the device made them drive more carefully, which naturally improved their gas mileage.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-3xl p-8 shadow-sm border border-black/5" style="background-color: #EBF4E5;">
+                        <h3 class="text-2xl font-bold mb-4" style="font-family: 'Fraunces', serif; color: #B25A68;">What people dislike:</h3>
+                        <ul class="space-y-4 text-black/70 font-light text-lg">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: #B25A68;">cancel</span>
+                                <span><strong>Varying results:</strong> Some drivers report clear improvements. Others report no change at all.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5" style="color: #B25A68;">cancel</span>
+                                <span><strong>Misleading ads:</strong> Some buyers bought it expecting their fuel bill to drop in half immediately, which is an unrealistic goal for any basic OBD2 plugin.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <img src="public/sygas-image.png" alt="SynGas fuel saver reviews and customer opinions summary" class="w-full max-w-lg h-auto object-cover rounded-3xl drop-shadow-xl">
+                </div>
             </div>
 
-            <p class="text-black/60 font-light text-lg mb-10">
-                <strong>Final takeaway on reviews:</strong> Treat the device as an efficiency coach or a low-cost test. If you expect a miracle, you may be disappointed. If you want a simple way to test fuel monitoring, the price point makes it an easy experiment.
-            </p>
-            
-            
-            <div class="text-center">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+            <!-- Centered Conclusion and CTA -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-black/60 font-light text-lg mb-10">
+                    <strong>Final takeaway on reviews:</strong> Treat the device as an efficiency coach or a low-cost test. If you expect a miracle, you may be disappointed. If you want a simple way to test fuel monitoring, the price point makes it an easy experiment.
+                </p>
+                
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                     Read the Offer Terms Before You Buy SynGas
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Transparency, buyer protection</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-2">
-                <div class="w-full h-full">
-                <img src="public/sygas-image.png" alt="SynGas fuel saver reviews and customer opinions summary" class="w-full h-auto object-cover">
-            </div>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════
-         H2: Special Offer / Discount / Bundle Deals
-    ══════════════════════════════════════ -->
-    <section class="py-24 px-6" style="background-color: #F8F9FA;" id="pricing">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Special Offer / Discount / Bundle Deals</h2>
-            </div>
-            
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-6 text-center">
-                Many buyers look for a <strong>syngas discount</strong> or promo code before purchasing. If you are buying one unit for a test, the single-unit price is usually accessible. If you own multiple vehicles or want to give one to a family member, multi-pack bundles often drop the per-unit price significantly.
-            </p>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-10 text-center">
-                Before choosing a bundle, remember that the device needs to be tested on your own vehicle to prove its value to you. Start small if you are unsure, or use a multi-pack if you already trust the concept and want to outfit a whole driveway.
-            </p>
-
-            <div class="p-8 rounded-3xl shadow-sm border border-black/5 mb-10" style="background-color: #FCE8ED;">
-                <p class="text-black/60 font-light text-lg">
-                    <strong>Pricing Tip:</strong> Check the official sales page for the most current pricing, as online prices for automotive accessories can fluctuate.
-                </p>
-            </div>
-
-            
-            <div class="text-center">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
-                    Check Today's SynGas Discount
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
-                <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Savings urgency, bundle value logic</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                <div class="w-full h-full">
-                <img src="public/sygas-image.png" alt="SynGas device price discount and bundle deal options" class="w-full h-auto object-cover">
-            </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ══════════════════════════════════════
          H2: Who Should Buy
@@ -1045,45 +1076,75 @@
     <!-- ══════════════════════════════════════
          H2: Comparison Table
     ══════════════════════════════════════ -->
-    <section class="py-24 px-6" style="background-color: var(--cream);">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Comparison Table</h2>
+    <section class="py-24 px-6" style="background-color: var(--cream);" id="comparison">
+        <div class="max-w-5xl mx-auto">
+            <!-- Centered Header -->
+            <div class="text-center mb-6 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Comparison Table</h2>
+                <p class="text-black/60 font-light text-xl">
+                    When deciding where to <strong>buy syngas</strong>, buyers often compare it to other fuel-saving methods. Here is how SynGas stacks up:
+                </p>
             </div>
-            
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-10 text-center">
-                When deciding where to <strong>buy syngas</strong>, buyers often compare it to other methods:
-            </p>
 
-            <ul class="space-y-6 text-black/70 font-light text-lg max-w-3xl mx-auto">
-                <li class="p-6 rounded-2xl shadow-sm border border-black/5" style="background-color: #DDF0F5;">
-                    <strong>SynGas OBD Saver:</strong> Simple plug-in, tracks/adjusts baseline driving data, very low cost, easy to remove.
-                </li>
-                <li class="p-6 rounded-2xl shadow-sm border border-black/5" style="background-color: #E2EFF0;">
-                    <strong>Fuel Additives:</strong> Requires regular purchases, poured into the gas tank, mixed results.
-                </li>
-                <li class="p-6 rounded-2xl shadow-sm border border-black/5" style="background-color: #F8E5D6;">
-                    <strong>Mechanic ECU Tune:</strong> Very expensive, permanently alters vehicle software, can void warranties, best for sports cars.
-                </li>
-                <li class="p-6 rounded-2xl shadow-sm border border-black/5" style="background-color: #F8DDE1;">
-                    <strong>Driving Habit Changes:</strong> Free, highly effective, but requires discipline. SynGas is often used alongside this method.
-                </li>
-            </ul>
+            <!-- The Actual Table (from original content) -->
+            <div class="overflow-x-auto rounded-2xl shadow-xl border border-black/10 mb-16">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Best For</th>
+                            <th>Main Advantage</th>
+                            <th>Limitation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="highlight-col">SynGas OBD Fuel Saver</td>
+                            <td>Simple plug-in testing</td>
+                            <td>Easy setup, no tools</td>
+                            <td>Results vary by vehicle</td>
+                        </tr>
+                        <tr>
+                            <td>Generic OBD Fuel Saver</td>
+                            <td>Budget shoppers</td>
+                            <td>Often cheap</td>
+                            <td>Quality and support may vary</td>
+                        </tr>
+                        <tr>
+                            <td>Fuel Tracking App</td>
+                            <td>Data-focused drivers</td>
+                            <td>Clear MPG records</td>
+                            <td>Does not change vehicle behavior</td>
+                        </tr>
+                        <tr>
+                            <td>Mechanic Tune-Up</td>
+                            <td>Cars with performance issues</td>
+                            <td>Fixes real mechanical problems</td>
+                            <td>Higher cost</td>
+                        </tr>
+                        <tr>
+                            <td>Tire Pressure Maintenance</td>
+                            <td>Everyone</td>
+                            <td>Proven basic fuel-efficiency habit</td>
+                            <td>Requires regular checking</td>
+                        </tr>
+                        <tr>
+                            <td>Smoother Driving Habits</td>
+                            <td>City drivers</td>
+                            <td>Free and practical</td>
+                            <td>Needs discipline</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            
-            <div class="text-center mt-12">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
-                    View SynGas Technical Specifications
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
+                    View Bundle Options
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Value transparency, objective comparison</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                <div class="w-full h-full">
-                <img src="public/sygas-image.png" alt="SynGas comparison vs other obd fuel savers and tuning chips" class="w-full h-auto object-cover">
-            </div>
             </div>
         </div>
     </section>
@@ -1151,9 +1212,9 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
             <div class="w-full lg:w-1/2 order-1 lg:order-2">
                 <span class="material-symbols-outlined text-6xl mb-6" style="color: var(--blush);">verified_user</span>
-            <h2 class="text-4xl md:text-5xl font-bold mb-8" style="font-family: 'Fraunces', serif;">Guarantee</h2>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" style="font-family: 'Fraunces', serif;">30-Day Money-Back Guarantee</h2>
             <p class="text-white/80 font-light leading-relaxed text-lg max-w-3xl mx-auto mb-10">
-                The official <strong>syngas</strong> store typically offers a 30-day money-back guarantee. Because the device is meant to be a test of your vehicle's efficiency, you have a full month to plug it in, drive your normal routes, and measure the results. If you do not see a difference, or if it does not fit your specific OBD2 port layout, you can request a refund.
+                The official <strong>syngas</strong> store offers a strict 30-day money-back guarantee. Because the device is meant to be a test of your vehicle's efficiency, you have a full month to plug it in, drive your normal routes, and measure the results. If you do not see a difference, or if it does not fit your specific OBD2 port layout, you can easily request a full refund.
             </p>
 
             
@@ -1180,10 +1241,10 @@
     <!-- ══════════════════════════════════════
          H2: FAQs
     ══════════════════════════════════════ -->
-    <section class="py-20 px-6" style="background-color: var(--cream);">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            <div class="w-full lg:w-1/2 order-1 lg:order-1">
-                <div class="text-center mb-16">
+    <section class="py-24 px-6" style="background-color: var(--cream);" id="faqs">
+        <div class="max-w-4xl mx-auto px-6">
+            <!-- Centered Header -->
+            <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">FAQs</h2>
             </div>
 
@@ -1228,20 +1289,13 @@
                     </div>
                 </details>
             </div>
-
             
             <div class="text-center">
-                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg text-base">
+                <a href="#pricing" class="inline-flex items-center gap-3 bg-[var(--primary)] text-white font-bold px-10 py-5 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-xl text-lg">
                     Get Your SynGas Fuel Saver Today
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
                 </a>
                 <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Final clarity, no hidden surprises</div>
-            </div>
-            </div>
-            <div class="w-full lg:w-1/2 order-2 lg:order-2">
-                <div class="w-full h-full">
-                <img src="public/sygas-image.png" alt="SynGas frequently asked questions and troubleshooting" class="w-full h-auto object-cover">
-            </div>
             </div>
         </div>
     </section>
