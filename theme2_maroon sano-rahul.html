@@ -215,6 +215,86 @@
             font-weight: 700;
             color: var(--primary);
         }
+
+        /* ===== MOBILE HAMBURGER (PURE CSS) ===== */
+        .nav-toggle {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle-label .bar {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #ffffff;
+            margin: 5px 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #mobile-nav-links {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .desktop-nav-links {
+                display: none !important;
+            }
+
+            .nav-toggle-label {
+                display: inline-block;
+            }
+
+            #mobile-nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 8px 24px 16px;
+                background-color: var(--primary);
+                border-top: 1px solid rgba(255, 255, 255, 0.12);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+                z-index: 70;
+            }
+
+            #mobile-nav-links a {
+                display: block;
+                padding: 10px 0;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            #mobile-nav-links .mobile-cta {
+                margin-top: 8px;
+                color: var(--primary);
+                background-color: var(--blush);
+                border-radius: 9999px;
+                padding: 10px 14px;
+                text-align: center;
+            }
+
+            .nav-toggle:checked ~ #mobile-nav-links {
+                display: block;
+            }
+
+            .nav-toggle:checked ~ nav .nav-toggle-label .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .nav-toggle:checked ~ nav .nav-toggle-label .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle:checked ~ nav .nav-toggle-label .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
     </style>
 </head>
 
@@ -246,8 +326,9 @@
     ══════════════════════════════════════ -->
     <header id="mainNav" class="sticky top-0 z-50 w-full bg-primary transition-all duration-300"
         style="background-color: var(--primary);">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="hidden lg:flex gap-8 text-sm font-medium text-white/80 items-center">
+            <div class="desktop-nav-links hidden lg:flex gap-8 text-sm font-medium text-white/80 items-center">
                 <a href="#specifications" class="hover:text-white transition-colors duration-200">Specs</a>
                 <a href="#overview" class="hover:text-white transition-colors duration-200">Overview</a>
                 <a href="#how-it-works" class="hover:text-white transition-colors duration-200">How It Works</a>
@@ -260,7 +341,7 @@
                 SynGas<span style="color: var(--blush);">.</span>
             </a>
 
-            <div class="hidden md:flex gap-6 items-center text-sm font-medium text-white/80">
+            <div class="desktop-nav-links hidden md:flex gap-6 items-center text-sm font-medium text-white/80">
                 <a href="#reviews" class="hover:text-white transition-colors">Reviews</a>
                 <a href="#pricing"
                     class="border rounded-full px-6 py-2.5 text-white hover:bg-white hover:text-[var(--primary)] transition-colors duration-200 flex items-center gap-2"
@@ -269,20 +350,33 @@
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
+
+            <label for="nav-toggle" class="nav-toggle-label md:hidden" aria-hidden="true">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
         </nav>
+        <div id="mobile-nav-links" class="md:hidden">
+            <a href="#specifications">Specs</a>
+            <a href="#overview">Overview</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#pricing" class="mobile-cta">Buy Now</a>
+        </div>
     </header>
 
     <!-- ══════════════════════════════════════
          H1: HERO SECTION — Product Title + USP + Trust Factors + CTA
     ══════════════════════════════════════ -->
-    <section class="bg-primary text-white relative min-h-screen flex items-center py-10 lg:py-0 overflow-hidden">
+    <section class="bg-primary text-white relative min-h-screen flex items-center py-8 lg:py-0 overflow-hidden">
 
         <!-- Subtle radial glow behind product -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] rounded-full opacity-20 pointer-events-none"
             style="background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);"></div>
 
         <!-- ── HERO CONTENT GRID ── -->
-        <div class="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-10 lg:py-16">
+        <div class="w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-8 lg:py-12">
 
             <!-- ── LEFT: Big Headline + USP + CTA ── -->
             <div class="lg:col-span-7 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left pb-4 lg:pb-8">
@@ -1018,41 +1112,41 @@
     <!-- ══════════════════════════════════════
          H2: Who Should Buy
     ══════════════════════════════════════ -->
-    <section class="py-20 px-6" style="background-color: var(--cream);">
+    <section class="py-20 px-6 bg-primary text-white">
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
             <div class="w-full lg:w-1/2 order-1 lg:order-1">
                 <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold" style="font-family: 'Fraunces', serif;">Who Should Buy</h2>
             </div>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-6">
+            <p class="text-white/80 font-light leading-relaxed text-lg mb-6">
                 You should consider testing the <strong>syngas fuel saver</strong> if:
             </p>
 
-            <ul class="space-y-4 text-black/70 font-light text-lg mb-10 max-w-2xl mx-auto">
+            <ul class="space-y-4 text-white/85 font-light text-lg mb-10 max-w-2xl mx-auto">
                 <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                    <span class="material-symbols-outlined mt-0.5" style="color: var(--blush);">check_circle</span>
                     <span>You drive a standard gas or diesel car made after 1996.</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                    <span class="material-symbols-outlined mt-0.5" style="color: var(--blush);">check_circle</span>
                     <span>You commute long distances and want to measure fuel efficiency.</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                    <span class="material-symbols-outlined mt-0.5" style="color: var(--blush);">check_circle</span>
                     <span>You are tired of high fuel bills and want a low-effort way to attempt improvements.</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                    <span class="material-symbols-outlined mt-0.5" style="color: var(--blush);">check_circle</span>
                     <span>You prefer non-permanent vehicle accessories.</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="material-symbols-outlined mt-0.5" style="color: var(--primary);">check_circle</span>
+                    <span class="material-symbols-outlined mt-0.5" style="color: var(--blush);">check_circle</span>
                     <span>You are willing to track your own MPG to see real data.</span>
                 </li>
             </ul>
 
-            <p class="text-black/60 font-light leading-relaxed text-lg mb-10">
+            <p class="text-white/80 font-light leading-relaxed text-lg mb-10">
                 You should <strong>skip this product</strong> if you want to double your fuel economy overnight, or if you drive a heavily modified performance car that requires custom ECU tuning.
             </p>
 
@@ -1062,7 +1156,7 @@
                     Find Out If SynGas Matches Your Driving Style
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
-                <div class="text-xs text-black/50 mt-4 font-medium uppercase tracking-wider">Self-identification, practical decision-making</div>
+                <div class="text-xs text-white/60 mt-4 font-medium uppercase tracking-wider">Self-identification, practical decision-making</div>
             </div>
             </div>
             <div class="w-full lg:w-1/2 order-2 lg:order-2">
@@ -1083,6 +1177,9 @@
                 <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Fraunces', serif;">Comparison Table</h2>
                 <p class="text-black/60 font-light text-xl">
                     When deciding where to <strong>buy syngas</strong>, buyers often compare it to other fuel-saving methods. Here is how SynGas stacks up:
+                </p>
+                <p class="text-black/60 font-light text-lg mt-4">
+                    The syngas fuel saver reviews conversation often compares SynGas with generic OBD plug-ins, driving apps, mechanic tune-ups, and normal fuel-saving habits. Each option has a different role.
                 </p>
             </div>
 
@@ -1137,6 +1234,10 @@
                     </tbody>
                 </table>
             </div>
+
+            <p class="text-black/60 font-light text-lg mb-10 text-center max-w-4xl mx-auto">
+                SynGas works best when paired with smart habits. If your tires are underinflated, your engine needs service, or you drive aggressively, fix those issues first. Then use the SynGas OBD Fuel Saver as part of a cleaner fuel-use test.
+            </p>
 
             <!-- CTA -->
             <div class="text-center">
@@ -1490,18 +1591,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Toggle navbar shadow on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-md');
-            } else {
-                nav.classList.remove('shadow-md');
-            }
-        });
-    </script>
 
 </body>
 
